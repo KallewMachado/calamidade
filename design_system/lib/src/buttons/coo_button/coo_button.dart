@@ -20,6 +20,8 @@ class CooButton extends StatelessWidget {
   final bool enable;
   final IconData? icon;
   final ButtonType? type;
+  final EdgeInsets? padding;
+  final Size? size;
 
   const CooButton({
     super.key,
@@ -31,16 +33,19 @@ class CooButton extends StatelessWidget {
     this.isLoading = false,
     this.icon,
     this.type = ButtonType.primary,
+    this.padding,
+    this.size,
   });
 
   factory CooButton.primary({
-    required String label,
+    String label = '',
     required VoidCallback onPressed,
     Color? textColor,
     Color? backgroundColor,
     bool isLoading = false,
     bool enable = true,
     IconData? icon,
+    Size? size = const Size(double.infinity, 56),
   }) {
     return CooButton(
       label: label,
@@ -51,11 +56,12 @@ class CooButton extends StatelessWidget {
       enable: enable,
       icon: icon,
       type: ButtonType.primary,
+      size: size,
     );
   }
 
   factory CooButton.secondary({
-    required String label,
+    String label = '',
     required VoidCallback onPressed,
     Color? textColor,
     Color? backgroundColor,
@@ -76,7 +82,7 @@ class CooButton extends StatelessWidget {
   }
 
   factory CooButton.danger({
-    required String label,
+    String label = '',
     required VoidCallback onPressed,
     Color? textColor,
     Color? backgroundColor,
@@ -96,7 +102,7 @@ class CooButton extends StatelessWidget {
   }
 
   factory CooButton.outline({
-    required String label,
+    String label = '',
     required VoidCallback onPressed,
     Color? textColor,
     Color? backgroundColor,
@@ -146,10 +152,11 @@ class CooButton extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.only(right: 10, left: 10),
+      padding: padding ?? const EdgeInsets.only(right: 10, left: 10),
       child: ButtonType.outline == type
           ? OutlinedButton(
               style: OutlinedButton.styleFrom(
+                fixedSize: size,
                 side: BorderSide(
                   color: _backgroundColor,
                   width: 1.0,
@@ -174,6 +181,7 @@ class CooButton extends StatelessWidget {
           : ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: _backgroundColor,
+                fixedSize: size,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
@@ -213,19 +221,14 @@ class _ContentButton extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        icon != null
-            ? const SizedBox(
-                height: 10,
-                width: 25,
-              )
-            : Container(),
+        icon != null && label.isNotEmpty ? const SizedBox(width: 8) : Container(),
         Text(
           label,
           style: TextStyle(
             color: textColor,
           ),
         ),
-        icon ?? Container(),
+        Center(child: icon ?? Container()),
       ],
     );
   }

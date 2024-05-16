@@ -311,7 +311,7 @@ final colors = CoopartilharColors.of(context);
 - **Commits**:
   - `feat`, `fix`, `doc`, `etc`.
 
-[Conventianal Commits](https://www.conventionalcommits.org/en/v1.0.0)
+[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0)
 
 ## Convenção de nomenclatura para branches
 

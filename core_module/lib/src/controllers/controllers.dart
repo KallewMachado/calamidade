@@ -8,7 +8,8 @@ import 'package:flutter/foundation.dart';
 /// `BaseState`.
 /// Essa classe pode usar builder como [ValueListenableBuilder],
 /// [ListenableBuilder] ou [AnimatedBuilder].
-abstract class BaseController<T extends BaseState> implements ValueListenable<T> {
+abstract class BaseController<T extends BaseState>
+    implements ValueListenable<T> {
   late final ValueNotifier<T> _stateNotifier;
 
   /// Obtém o estado atual mantido pelo `_stateNotifier`.

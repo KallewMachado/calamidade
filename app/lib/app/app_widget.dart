@@ -10,7 +10,10 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       theme: lightTheme(context),
-      routerConfig: Routefly.routerConfig(routes: routes),
+      routerConfig: Routefly.routerConfig(
+        routes: routes,
+        initialPath: '/splash',
+      ),
     );
   }
 }

@@ -1,8 +1,10 @@
-import 'rest_client_request.dart';
-import 'rest_client_response.dart';
+import 'dart:async';
 
-abstract interface class IClientInterceptor{
-  Future<RestClientResponse> onResponse(RestClientResponse response);
-  Future<RestClientRequest> onRequest(RestClientRequest request);
-  Future<RestClientResponse> onError(RestClientResponse error);
+import '../../core_module.dart';
+import 'rest_client_http_message.dart';
+
+abstract interface class IClientInterceptor {
+  FutureOr<RestClientHttpMessage> onResponse(RestClientResponse response);
+  FutureOr<RestClientHttpMessage> onRequest(RestClientRequest request);
+  FutureOr<RestClientHttpMessage> onError(RestClientException error);
 }

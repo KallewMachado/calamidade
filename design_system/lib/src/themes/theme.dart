@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-const _defaultInputBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.all(Radius.circular(8)),
-    borderSide: BorderSide.none);
+const _defaultInputBorder = OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(8)), borderSide: BorderSide.none);
 
 ThemeData lightTheme(BuildContext context) {
-  final textTheme = Theme.of(context).textTheme;
   return ThemeData(
     inputDecorationTheme: const InputDecorationTheme(
         filled: true,
@@ -31,7 +28,23 @@ ThemeData lightTheme(BuildContext context) {
       tertiary: Color(0xff84cc6d),
       error: Color(0xffEB5757),
     ),
-    textTheme: GoogleFonts.interTextTheme(textTheme),
+    textTheme: TextTheme(
+      displayLarge: GoogleFonts.inter(fontSize: 24, fontWeight: FontWeight.w700),
+      displayMedium: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.w600),
+      displaySmall: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.w400),
+      headlineLarge: GoogleFonts.inter(fontSize: 18, fontWeight: FontWeight.w700),
+      headlineMedium: GoogleFonts.inter(fontSize: 18, fontWeight: FontWeight.w600),
+      headlineSmall: GoogleFonts.inter(fontSize: 18, fontWeight: FontWeight.w400),
+      titleLarge: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w700),
+      titleMedium: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w600),
+      titleSmall: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w400),
+      bodyLarge: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w700),
+      bodyMedium: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w600),
+      bodySmall: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w400),
+      labelLarge: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w700),
+      labelMedium: GoogleFonts.inter(fontSize: 12, fontWeight: FontWeight.w600),
+      labelSmall: GoogleFonts.inter(fontSize: 12, fontWeight: FontWeight.w400),
+    ),
     extensions: const [
       CoopartilharColors(
         primary: Color(0xff129166),

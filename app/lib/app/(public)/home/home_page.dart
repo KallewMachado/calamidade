@@ -13,10 +13,21 @@ class HomePage extends StatelessWidget {
         children: [
           const Placeholder(),
           ElevatedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/ask_help/new_ask_help');
+            },
+            child: const Text('New ask help'),
+          ),
+          Center(
+            child: ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/ask_help/new_ask_help');
+                Navigator.pushNamed(context, '/auth/not_affiliated');
               },
-              child: const Text('New ask help')),
+              child: const Text(
+                'Página não cooperado',
+              ),
+            ),
+          ),
         ],
       ),
     );
